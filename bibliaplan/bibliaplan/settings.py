@@ -1,4 +1,5 @@
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,6 +11,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -17,6 +19,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'plan',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
 )
 
 MIDDLEWARE_CLASSES = (
