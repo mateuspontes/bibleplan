@@ -66,12 +66,13 @@ class Planos(models.Model):
 class Leituras(models.Model):
     plano = models.ForeignKey(Planos)
     livro = models.ForeignKey(Livros)
+    dia = models.IntegerField(default=1, blank=False, null=False)
     capitulo = models.IntegerField(verbose_name='capítulo')
     versiculo_inicial = models.IntegerField(verbose_name='versículo inicial')
     versiculo_final = models.IntegerField(verbose_name='versículo final')
 
     def __str__(self):
-        return "%s %s:%s" % (self.livro, self.capitulo, sefl.versiculo)
+        return "Dia %s - %s %s:%s-%s" % (self.dia, self.livro, self.capitulo, self.versiculo_inicial, self.versiculo_final)
 
     class Meta:
         db_table = 'leituras'
