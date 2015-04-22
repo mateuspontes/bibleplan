@@ -66,7 +66,7 @@ class Planos(models.Model):
 class Leituras(models.Model):
     plano = models.ForeignKey(Planos)
     livro = models.ForeignKey(Livros)
-    dia = models.IntegerField(default=1, blank=False, null=False)
+    dia = models.IntegerField(blank=False, null=False)
     capitulo = models.IntegerField(verbose_name='capítulo')
     versiculo_inicial = models.IntegerField(verbose_name='versículo inicial')
     versiculo_final = models.IntegerField(verbose_name='versículo final')
