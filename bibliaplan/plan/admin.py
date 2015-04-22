@@ -1,5 +1,5 @@
 from django.contrib import admin
-from plan.models import Livros, Testamentos, Versoes, Versiculos
+from plan.models import Livros, Testamentos, Versoes, Versiculos, Planos, Leituras
 
 class VersiculoAdmin(admin.ModelAdmin):
     list_display = ('texto', 'livro', 'versao')
@@ -15,7 +15,12 @@ class TestamentoAdmin(admin.ModelAdmin):
     def book_count(self, obj):
         return obj.livros_set.count()
 
+class LeituraAdmin(admin.ModelAdmin):
+    list_display = ('capitulo', 'plano')
+
 admin.site.register(Testamentos, TestamentoAdmin)
 admin.site.register(Livros, LivroAdmin)
 admin.site.register(Versiculos, VersiculoAdmin)
 admin.site.register(Versoes)
+admin.site.register(Planos)
+admin.site.register(Leituras, LeituraAdmin)

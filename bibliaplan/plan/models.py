@@ -6,10 +6,9 @@ class Livros(models.Model):
     testamento = models.ForeignKey('Testamentos')
     posicao = models.IntegerField()
     nome = models.CharField(max_length=30)
-    abreviacao = models.CharField(max_length=5, verbose_name = 'abreviação')
+    abreviacao = models.CharField(max_length=5, verbose_name='abreviação')
 
     class Meta:
-        managed = False
         db_table = 'livros'
         verbose_name_plural = 'Livros'
         ordering = ['id']
@@ -21,7 +20,6 @@ class Testamentos(models.Model):
     nome = models.CharField(max_length=30)
 
     class Meta:
-        managed = False
         db_table = 'testamentos'
         verbose_name_plural = 'Testamentos'
         ordering = ['nome']
@@ -33,12 +31,11 @@ class Testamentos(models.Model):
 class Versiculos(models.Model):
     versao = models.ForeignKey('Versoes')
     livro = models.ForeignKey(Livros)
-    capitulo = models.IntegerField(verbose_name = 'capítulo')
-    versiculo = models.IntegerField(verbose_name = 'versículo')
+    capitulo = models.IntegerField(verbose_name='capítulo')
+    versiculo = models.IntegerField(verbose_name='versículo')
     texto = models.TextField()
 
     class Meta:
-        managed = False
         db_table = 'versiculos'
         verbose_name_plural = 'Versículos'
 
@@ -47,13 +44,36 @@ class Versiculos(models.Model):
 
 
 class Versoes(models.Model):
-    vrs_id = models.AutoField(primary_key=True)
-    vrs_nome = models.CharField(max_length=50, verbose_name = 'nome da versão')
+    nome = models.CharField(max_length=50, verbose_name='nome da versão')
 
     class Meta:
-        managed = False
         db_table = 'versoes'
         verbose_name_plural = 'Versões'
 
     def __str__(self):
-        return self.vrs_nome
+        return self.nome
+
+class Planos(models.Model):
+    titulo = models.CharField(max_length=250)
+
+    class Meta:
+        db_table = 'planos'
+        verbose_name_plural = 'Planos'
+
+    def __str__(self):
+        return self.titulo
+
+class Leituras(models.Model):
+    plano = models.ForeignKey(Planos)
+    livro = models.ForeignKey(Livros)
+    capitulo = models.IntegerField(verbose_name='capítulo')
+    versiculo_inicial = models.IntegerField(verbose_name='versículo inicial')
+    versiculo_final = models.IntegerField(verbose_name='versículo final')
+
+    def __str__(self):
+        return "%s %s:%s" % (self.livro, self.capitulo, sefl.versiculo)
+
+    class Meta:
+        db_table = 'leituras'
+        verbose_name_plural = 'Leituras'
+
