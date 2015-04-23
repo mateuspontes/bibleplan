@@ -1,5 +1,5 @@
 from django.contrib import admin
-from plan.models import Livros, Testamentos, Versoes, Versiculos, Planos, Leituras
+from . import models
 
 class VersiculoAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'livro', 'versao')
@@ -20,9 +20,9 @@ class LeituraAdmin(admin.ModelAdmin):
     list_display = ('__str__', 'dia', 'plano')
     search_fields = ['dia']
 
-admin.site.register(Testamentos, TestamentoAdmin)
-admin.site.register(Livros, LivroAdmin)
-admin.site.register(Versiculos, VersiculoAdmin)
-admin.site.register(Versoes)
-admin.site.register(Planos)
-admin.site.register(Leituras, LeituraAdmin)
+admin.site.register(models.Testamentos, TestamentoAdmin)
+admin.site.register(models.Livros, LivroAdmin)
+admin.site.register(models.Versiculos, VersiculoAdmin)
+admin.site.register(models.Versoes)
+admin.site.register(models.Planos)
+admin.site.register(models.Leituras, LeituraAdmin)
