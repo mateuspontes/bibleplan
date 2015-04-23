@@ -1,0 +1,1 @@
+web: gunicorn bibliaplan.wsgi --log-file -
