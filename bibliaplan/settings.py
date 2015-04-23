@@ -3,7 +3,6 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 SECRET_KEY = '=zm*u&u$n8i6z6ppu8gvp^h3=$7xx@a!m5zd8bax+i)$-m7s5c'
 
 DEBUG = True
@@ -57,9 +56,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bibliaplan.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -70,9 +66,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'pt_BR'
 
