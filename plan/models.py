@@ -29,7 +29,7 @@ class Testamentos(models.Model):
 
 
 class Versiculos(models.Model):
-    versao = models.ForeignKey('Versoes')
+    versao = models.ForeignKey('Versoes', verbose_name='versão')
     livro = models.ForeignKey(Livros)
     capitulo = models.IntegerField(verbose_name='capítulo')
     versiculo = models.IntegerField(verbose_name='versículo')

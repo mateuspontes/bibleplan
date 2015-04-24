@@ -17,7 +17,7 @@ class TestamentoAdmin(admin.ModelAdmin):
     book_count.short_description = 'Livros'
 
 class LeituraAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'dia', 'plano')
+    list_display = ('__str__', 'plano')
     search_fields = ['dia']
 
 admin.site.register(models.Testamentos, TestamentoAdmin)
