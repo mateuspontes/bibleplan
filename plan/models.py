@@ -70,8 +70,8 @@ class Leituras(models.Model):
     livro = models.ForeignKey(Livros)
     dia = models.IntegerField(blank=False, null=False)
     capitulo = models.IntegerField(verbose_name='capítulo')
-    versiculo_inicial = models.IntegerField(verbose_name='versículo inicial')
-    versiculo_final = models.IntegerField(verbose_name='versículo final')
+    versiculo_inicial = models.IntegerField(verbose_name='versículo inicial', blank=True, null=True)
+    versiculo_final = models.IntegerField(verbose_name='versículo final', blank=True, null=True)
 
     def __str__(self):
         return "Dia %s - %s %s:%s-%s" % (self.dia, self.livro, self.capitulo, self.versiculo_inicial, self.versiculo_final)
