@@ -55,6 +55,8 @@ class Versoes(models.Model):
 
 class Planos(models.Model):
     titulo = models.CharField(max_length=250)
+    descricao = models.TextField(blank=True, null=True)
+    dias = models.IntegerField(default=1)
 
     class Meta:
         db_table = 'planos'
